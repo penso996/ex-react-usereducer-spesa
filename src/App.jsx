@@ -41,7 +41,7 @@ function App() {
         {addedProducts.length > 0 && (<ul>
 
           {addedProducts.map((product) => (
-            <li key={product.id}>{product.name}, {product.price.toFixed(2)}€, {product.quantity} unità</li>
+            <li key={product.id}>{product.quantity} x {product.name}</li>
           ))}
 
         </ul>)}
