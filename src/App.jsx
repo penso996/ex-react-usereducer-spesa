@@ -35,6 +35,10 @@ function App() {
     }]);
   }
 
+  const removeFromCart = product => {
+    setAddedProducts(curr => curr.filter(p => p.name !== product.name))
+  }
+
   return (
     <>
       <div>
@@ -50,13 +54,15 @@ function App() {
 
       <div>
         <h2>Prodotti nel Carrello</h2>
-        {addedProducts.length > 0 && (<ul>
-
-          {addedProducts.map((product) => (
-            <li key={product.id}>{product.quantity} x {product.name}</li>
-          ))}
-
-        </ul>)}
+        {addedProducts.length > 0 && (
+          <ul>
+            {addedProducts.map((product) => (
+              <li key={product.id}>{product.quantity} x {product.name}
+                <button onClick={() => removeFromCart(product)}>Rimuovi</button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </>
   )
